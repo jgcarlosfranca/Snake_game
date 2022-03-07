@@ -7,10 +7,14 @@
         document.addEventListener("keydown", keyPush);
         setInterval(game, 1000 / 15);
     }
+    px = py = 10;
+    gs = tc = 20;
+    ax = ay = 15;
     xv = yv = 0;
 
     function game() {
-
+        px += xv;
+        pv += yv;
     }
 
     function keyPush(evt) {
