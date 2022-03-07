@@ -1,4 +1,4 @@
-<canvas id="gc" width="400" height="400"></canvas>
+<canvas id="gc" width="700" height="700"></canvas>
 <script>
     window.onload = function() {
         canv = document.getElementById("gc");
@@ -12,6 +12,19 @@
     xv = yv = 0;
     trail = [];
     tail = 5;
+    let color = randomColor()
+
+    function randomColor() {
+        colorDef = '#' + Math.floor(Math.random() * 16777215).toString(16)
+        console.log(colorDef)
+        if (colorDef !== '#ff0000' && colorDef !== '#000000') {
+            return colorDef
+        } else {
+            return '#ffffff'
+        }
+    }
+
+
 
     function game() {
         px += xv;
@@ -31,7 +44,8 @@
         ctx.fillStyle = "black";
         ctx.fillRect(0, 0, canv.width, canv.height);
 
-        ctx.fillStyle = "lime";
+
+        ctx.fillStyle = color;
         for (let i = 0; i < trail.length; i++) {
             ctx.fillRect(trail[i].x * gs, trail[i].y * gs, gs - 2, gs - 2);
             if (trail[i].x == px && trail[i].y == py) {
